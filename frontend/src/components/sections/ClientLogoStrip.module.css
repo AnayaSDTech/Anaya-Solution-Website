@@ -1,0 +1,73 @@
+.section {
+  background: var(--color-ink-900);
+  border-block: 1px solid var(--border);
+  padding-block: clamp(36px, 4vw, 56px);
+}
+.inner {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  letter-spacing: 0;
+}
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5) var(--space-6);
+  align-items: center;
+  margin: 0;
+}
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+.logo {
+  height: 30px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  /* Render every logo in a single light tone so they sit quietly on the dark palette */
+  filter: brightness(0) invert(1);
+  opacity: 0.6;
+  transition: opacity var(--dur-fast);
+}
+.item:hover .logo {
+  opacity: 0.95;
+}
+/* Logos whose meaning depends on colour are shown unaltered */
+.original {
+  filter: none;
+  opacity: 0.85;
+}
+
+@media (min-width: 640px) {
+  .list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .inner {
+    grid-template-columns: 200px 1fr;
+  }
+  .list {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,124 @@
+/* Design tokens — see docs/03-design-system.md */
+@layer tokens {
+  :root {
+    /* Core palette */
+    --color-ink-950: #05070d;
+    --color-ink-900: #0a0f1c;
+    --color-ink-800: #111829;
+    --color-ink-700: #1b2438;
+    --color-ink-500: #3a4560;
+    --color-slate-400: #8b95ad;
+    --color-slate-200: #c9d0de;
+    --color-white: #f5f7fb;
+    --color-paper-0: #ffffff;
+    --color-paper-50: #f4f6fa;
+    --color-paper-200: #dde2ec;
+    --color-text-700: #3d4659;
+    --color-text-900: #0b1020;
+
+    /* Accents */
+    --color-accent: #4f7dff;
+    --color-accent-strong: #2f5bea;
+    --color-accent-2: #22d3b6;
+    --gradient-signal: linear-gradient(120deg, #4f7dff 0%, #22d3b6 100%);
+
+    /* Domains */
+    --color-domain-financial: #e8b04a;
+    --color-domain-social: #b36bff;
+    --color-domain-security-trust: #22d3b6;
+
+    /* Semantic */
+    --color-success: #2fbf71;
+    --color-warning: #f2a93b;
+    --color-info: #4f7dff;
+    --color-danger: #f05252;
+
+    /* Typography */
+    --font-display: 'Space Grotesk Variable', 'Space Grotesk', system-ui, sans-serif;
+    --font-body: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+    --fs-display: clamp(2.5rem, 1.7rem + 3.6vw, 4.75rem);
+    --fs-h1: clamp(2.125rem, 1.6rem + 2.4vw, 3.5rem);
+    --fs-h2: clamp(1.75rem, 1.4rem + 1.5vw, 2.625rem);
+    --fs-h3: clamp(1.3125rem, 1.2rem + 0.4vw, 1.625rem);
+    --fs-h4: clamp(1.125rem, 1.08rem + 0.2vw, 1.25rem);
+    --fs-lead: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+    --fs-body: clamp(1rem, 0.98rem + 0.1vw, 1.0625rem);
+    --fs-small: 0.875rem;
+    --fs-eyebrow: clamp(0.75rem, 0.73rem + 0.1vw, 0.8125rem);
+
+    /* Spacing */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 64px;
+    --space-9: 96px;
+    --space-10: 128px;
+    --section-pad: clamp(64px, 8vw, 128px);
+    --gutter: clamp(16px, 4vw, 40px);
+
+    /* Containers */
+    --container-wide: 1440px;
+    --container: 1200px;
+    --container-narrow: 760px;
+
+    /* Shape */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --radius-pill: 999px;
+
+    /* Motion */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --dur-fast: 150ms;
+    --dur-base: 250ms;
+    --dur-slow: 600ms;
+
+    --header-h: 72px;
+  }
+
+  /* Surfaces: semantic tokens remapped per section tone */
+  :root,
+  [data-tone='ink'] {
+    --surface: var(--color-ink-950);
+    --surface-alt: var(--color-ink-900);
+    --surface-raised: var(--color-ink-800);
+    --text: var(--color-slate-200);
+    --text-strong: var(--color-white);
+    --text-muted: var(--color-slate-400);
+    --border: rgb(255 255 255 / 0.08);
+    --border-strong: rgb(255 255 255 / 0.16);
+    --link: var(--color-accent);
+    --accent-text: #7fa0ff;
+    --icon-tile: rgb(79 125 255 / 0.12);
+    --card-shadow: none;
+    --card-hover-shadow: 0 0 0 1px rgb(79 125 255 / 0.25), 0 20px 60px -20px rgb(79 125 255 / 0.35);
+    --card-hover-border: rgb(79 125 255 / 0.45);
+    color-scheme: dark;
+  }
+
+  [data-tone='paper'] {
+    --surface: var(--color-paper-0);
+    --surface-alt: var(--color-paper-50);
+    --surface-raised: var(--color-paper-0);
+    --text: var(--color-text-700);
+    --text-strong: var(--color-text-900);
+    --text-muted: #5b6478;
+    --border: var(--color-paper-200);
+    --border-strong: #c3cad8;
+    --link: var(--color-accent-strong);
+    --accent-text: var(--color-accent-strong);
+    --icon-tile: rgb(47 91 234 / 0.08);
+    --card-shadow: 0 1px 2px rgb(11 16 32 / 0.06), 0 8px 24px -12px rgb(11 16 32 / 0.12);
+    --card-hover-shadow: 0 1px 2px rgb(11 16 32 / 0.06), 0 18px 40px -16px rgb(11 16 32 / 0.22);
+    --card-hover-border: rgb(47 91 234 / 0.45);
+    color-scheme: light;
+  }
+}

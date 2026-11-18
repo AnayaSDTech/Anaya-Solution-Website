@@ -1,0 +1,16 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  border-radius: var(--radius-sm);
+}
+.logo img {
+  height: 32px;
+  width: auto;
+  aspect-ratio: 228 / 60;
+}
+@media (max-width: 767px) {
+  .logo img {
+    height: 28px;
+  }
+}

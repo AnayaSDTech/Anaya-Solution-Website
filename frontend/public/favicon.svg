@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Favicon / app icon: mark on an ink tile -->
+  <defs>
+    <linearGradient id="anaya-fav-signal" x1="10" y1="56" x2="54" y2="8" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4F7DFF"/>
+      <stop offset="1" stop-color="#22D3B6"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0A0F1C"/>
+  <g transform="translate(8 7) scale(0.75)">
+    <path d="M10 56 L32 8 L54 56" fill="none" stroke="url(#anaya-fav-signal)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M17.3 40 H46.7" fill="none" stroke="url(#anaya-fav-signal)" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="32" cy="8" r="6.5" fill="url(#anaya-fav-signal)"/>
+    <circle cx="32" cy="40" r="6" fill="#22D3B6"/>
+  </g>
+</svg>

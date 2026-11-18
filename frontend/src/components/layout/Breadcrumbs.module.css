@@ -1,0 +1,32 @@
+.nav {
+  margin-bottom: var(--space-5);
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+.item {
+  display: inline-flex;
+  gap: var(--space-2);
+}
+.item a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.item a:hover {
+  color: var(--text-strong);
+  text-decoration: underline;
+}
+.item [aria-current] {
+  color: var(--text);
+}
+.sep {
+  opacity: 0.5;
+}

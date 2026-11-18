@@ -1,0 +1,88 @@
+.frame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  background:
+    radial-gradient(ellipse 80% 70% at 70% 20%, rgb(79 125 255 / 0.16), transparent 70%),
+    linear-gradient(180deg, var(--color-ink-800), var(--color-ink-900));
+  overflow: hidden;
+  box-shadow: 0 40px 100px -40px rgb(79 125 255 / 0.35);
+}
+.svg {
+  width: 100%;
+  height: auto;
+}
+.grid line {
+  stroke: rgb(255 255 255 / 0.05);
+  stroke-width: 1;
+}
+.chip {
+  fill: rgb(17 24 41 / 0.9);
+  stroke: rgb(255 255 255 / 0.1);
+}
+.bar {
+  fill: rgb(79 125 255 / 0.18);
+  stroke: rgb(79 125 255 / 0.35);
+  transform-box: fill-box;
+  transform-origin: bottom;
+  animation: grow 900ms var(--ease-out) both;
+}
+.draw {
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation: draw 1.8s var(--ease-out) 0.2s forwards;
+}
+.pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+.sweep {
+  transform-origin: 0 0;
+  animation: spin 6s linear infinite;
+}
+
+@keyframes grow {
+  from {
+    transform: scaleY(0.2);
+    opacity: 0;
+  }
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes pulse {
+  50% {
+    transform: scale(1.35);
+    opacity: 0.7;
+  }
+}
+@keyframes float {
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .draw {
+    stroke-dashoffset: 0;
+  }
+  .pulse,
+  .float,
+  .sweep {
+    animation: none;
+  }
+}

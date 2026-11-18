@@ -1,0 +1,31 @@
+.body {
+  display: grid;
+  gap: var(--space-6);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+.intro {
+  font-size: var(--fs-lead);
+  color: var(--text-strong);
+}
+.section {
+  display: grid;
+  gap: var(--space-3);
+}
+.section h2 {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-1);
+}
+.notice {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+}
+.notice svg {
+  flex: none;
+  color: var(--accent-text);
+  margin-top: 3px;
+}

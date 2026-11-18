@@ -1,0 +1,35 @@
+.accordion {
+  border-top: 1px solid var(--border);
+}
+.item {
+  border-bottom: 1px solid var(--border);
+}
+.heading {
+  font-size: inherit;
+  font-family: var(--font-body);
+}
+.trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 64px;
+  padding: var(--space-4) 0;
+  text-align: left;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--text-strong);
+}
+.trigger svg {
+  flex: none;
+  color: var(--accent-text);
+}
+.panel {
+  overflow: hidden;
+}
+.content {
+  padding-bottom: var(--space-5);
+  max-width: 70ch;
+  color: var(--text);
+}

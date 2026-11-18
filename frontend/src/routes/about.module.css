@@ -1,0 +1,10 @@
+.body {
+  display: grid;
+  gap: var(--space-5);
+  max-width: 64ch;
+  font-size: var(--fs-lead);
+  line-height: 1.65;
+}
+.body p:first-child {
+  color: var(--text-strong);
+}

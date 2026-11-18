@@ -1,0 +1,59 @@
+.section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding-block: calc(var(--header-h) + var(--space-8)) var(--space-9);
+  background:
+    radial-gradient(ellipse 60% 60% at 80% 20%, rgb(79 125 255 / 0.16), transparent 70%),
+    var(--color-ink-950);
+}
+.inner {
+  display: grid;
+  gap: var(--space-7);
+  align-items: center;
+}
+.code {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  margin-bottom: var(--space-4);
+}
+.message {
+  margin-top: var(--space-4);
+  max-width: 48ch;
+  font-size: var(--fs-lead);
+  color: var(--text-muted);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-4);
+  margin-top: var(--space-6);
+}
+.visual {
+  max-width: 480px;
+  width: 100%;
+}
+.standalone {
+  background: var(--color-ink-950);
+  min-height: 100vh;
+}
+.homeLogo {
+  position: absolute;
+  top: 20px;
+  left: var(--gutter);
+  z-index: 2;
+}
+.homeLogo img {
+  height: 32px;
+  width: auto;
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}

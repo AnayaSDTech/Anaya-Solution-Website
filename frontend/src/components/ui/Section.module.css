@@ -1,0 +1,51 @@
+.section {
+  position: relative;
+  background: var(--surface);
+  color: var(--text);
+  isolation: isolate;
+}
+.alt {
+  background: var(--surface-alt);
+}
+.default {
+  padding-block: var(--section-pad);
+}
+.compact {
+  padding-block: clamp(40px, 5vw, 72px);
+}
+.none {
+  padding-block: 0;
+}
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Faint grid of lines, faded with a radial mask */
+.grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Soft accent glow */
+.glow::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  width: min(900px, 120vw);
+  aspect-ratio: 1;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -55%);
+  background: radial-gradient(circle, rgb(79 125 255 / 0.22), rgb(34 211 182 / 0.08) 45%, transparent 70%);
+  filter: blur(20px);
+  pointer-events: none;
+}
