@@ -13,9 +13,25 @@
 }
 .eyebrow::before {
   content: '';
-  width: 20px;
-  height: 1px;
-  background: var(--gradient-signal);
+  width: 28px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, #4f7dff 30%, #22d3b6 50%, transparent 70%) 0 0 / 200% 100%,
+    rgb(79 125 255 / 0.25);
+  animation: flow 2.8s linear infinite;
+}
+@keyframes flow {
+  from {
+    background-position: 100% 0, 0 0;
+  }
+  to {
+    background-position: -100% 0, 0 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow::before {
+    animation: none;
+  }
 }
 .eyebrowMuted {
   color: var(--text-muted);

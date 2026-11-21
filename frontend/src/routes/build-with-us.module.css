@@ -1,0 +1,120 @@
+.heroCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* Engagement models */
+.models {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+}
+.model {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgb(79 125 255 / 0.1), transparent 70%),
+    var(--surface-raised);
+  overflow: hidden;
+}
+.model::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: var(--gradient-signal);
+  opacity: 0.7;
+}
+.modelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.modelIndex {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.modelTitle {
+  margin-top: var(--space-5);
+  font-size: var(--fs-h3);
+}
+.modelText {
+  margin-top: var(--space-2);
+  color: var(--text-muted);
+}
+.includes {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+  padding: var(--space-5) 0 0;
+  border-top: 1px solid var(--border);
+  list-style: none;
+  font-size: 0.9375rem;
+}
+.includes li {
+  display: flex;
+  gap: var(--space-2);
+}
+.includes svg {
+  flex: none;
+  margin-top: 4px;
+  color: var(--color-accent-2);
+}
+.bestFor {
+  margin-top: auto;
+  padding-top: var(--space-5);
+  font-size: 0.9375rem;
+  color: var(--text);
+}
+.bestFor span {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+/* Proof */
+.proofAnchor {
+  scroll-margin-top: 0;
+}
+.proof {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  .models {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Phones: open rows instead of boxes */
+@media (max-width: 767px) {
+  .models {
+    gap: 0;
+  }
+  .model {
+    padding: var(--space-6) 0;
+    border: 0;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    background: none;
+  }
+  .model:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+  .model::before {
+    display: none;
+  }
+}

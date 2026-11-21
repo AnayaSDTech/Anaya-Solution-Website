@@ -48,10 +48,36 @@ Automated TLS certificate lifecycle management: discover → landing → match �
 
 **Deliberately not claimed:** the AI root-cause agent (proposed only; the Errors screen is a scripted demo), BRD target metrics (e.g. "< 5 minutes for 100 servers"), production scale. The dashboard photo `backend/docs/CDM_Dashboard_demo.jpeg` shows a client environment and **must not** be used on the website.
 
+## 2b. EchoLoop (added 2026-11-21)
+
+**Source:** `docs/EchoLoop pitch deck (2).pptx` (pre-seed investor deck, Nov 2026). **File:** `src/content/products/echoloop.js`. Domain: Social. Technologies: Social Sentiment, AI & ML. Status: **Pilot** (confirmed by ANAYA). Order 1 (lead product on Home and Products).
+
+AI-assisted replies at scale: comments on six platforms are grouped by theme, one grounded answer is drafted per group, a named person approves it, and it is delivered as a personal reply under each comment. EchoCore (own statistical models) handles fair voice weighting, emotions, crisis early warning, coordination detection and reply priority.
+
+| Website claim | Deck slide |
+|---|---|
+| Six platforms (YouTube, Instagram, Facebook, TikTok, Bluesky, X); live connections depend on app review | 5 |
+| Read → group → draft → approve → reply → learn | 4 |
+| Named approvals, tamper-evident audit trail | 5, 6 |
+| Open-weight models, never trained on customer data | 5 |
+| Workspace isolation, UK hosting | 5, 10 |
+| Fair voice weighting, eight emotions, crisis early warning, coordination detection | 6 |
+| Enterprises can bring their own LLM | 11, 13 |
+| Four audiences (creators, agencies, brands, PR) and their one-liners | 8 |
+| Command-centre screenshot (demo workspace) → `public/images/products/echoloop/command-centre.png` | 5 |
+
+**Deliberately not used:** market size, financial plan, the funding ask, competitor price tables, pricing and the trial offer, ownership structure (EchoLoop Ltd), team biographies.
+
+## 2c. Build with us (development partner offer, added 2026-11-21)
+
+New page `/build-with-us` (content in `src/content/build.js`), in the main menu and footer, with a teaser on Home and a hero button. Engagement models confirmed by ANAYA: **Idea to MVP**, **Full product build**, **AI features for existing products** (no prices, no co-ownership terms). "What we build" points at ANAYA's own products as proof. Contact form gains the enquiry type "Build a product with us" (prefilled from `/contact?type=build`). The old Services page stays switched off.
+
 ## 3. Open points for ANAYA
 
 1. Confirm product names ("ANAYA Open Banking", "ANAYA CDM") and status "In development".
 2. Approve the wording in both files (then remove the [DRAFT] header comment).
-3. Neither product currently uses AI/ML, while the home hero positions ANAYA as an AI product company. Confirm the positioning, or tag a product with `ai-ml` once AI features ship (e.g. the CDM error agent).
-4. The Social domain has no product; its panel shows the domain description only.
+3. Resolved: EchoLoop is AI-led (AI & ML, Social Sentiment), so the "AI product company" positioning now has a flagship.
+4. Resolved: the Social domain now has EchoLoop.
+6. EchoLoop: confirm whether to link to an EchoLoop website or demo-booking page (`externalUrl`), and approve the wording.
+7. Client logos: the deck lists Barclays, Lloyds, TSB and J.P. Morgan as team members' past employers. The temporary "Our Clients" strip was kept at ANAYA's request; confirm these are ANAYA clients with permission before launch.
 5. Product screenshots (cleaned of client data) can be added through `media.hero` / `media.gallery`.

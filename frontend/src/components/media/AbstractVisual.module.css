@@ -11,8 +11,7 @@
 .svg {
   width: 100%;
   height: auto;
-}
-.grid line {
+}.grid line {
   stroke: rgb(255 255 255 / 0.05);
   stroke-width: 1;
 }
@@ -43,6 +42,130 @@
 .sweep {
   transform-origin: 0 0;
   animation: spin 6s linear infinite;
+}
+
+/* Orbit (Technology) */
+.orbit {
+  animation: spin 48s linear infinite;
+}
+.counter {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin 48s linear infinite reverse;
+}
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  fill: #c9d0de;
+}
+.core {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  fill: #f5f7fb;
+}
+.beam {
+  stroke-dasharray: 10 160;
+  stroke-dashoffset: 170;
+  animation: beam 2.6s linear infinite;
+}
+@keyframes beam {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Mark (About) */
+.flow {
+  stroke-dasharray: 24 14;
+  animation: flow 2.2s linear infinite;
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -38;
+  }
+}
+.traveller {
+  filter: drop-shadow(0 0 6px #22d3b6);
+}
+
+/* Build (Build with us): stages light up in turn */
+.stage {
+  opacity: 0.25;
+  animation: stage 2.4s ease-in-out infinite;
+}
+@keyframes stage {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  20%,
+  45% {
+    opacity: 1;
+  }
+}
+
+/* Code (Careers) */
+.window {
+  fill: #111829;
+  stroke: rgb(255 255 255 / 0.1);
+}
+.fileName,
+.lineNo {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  fill: #5d6782;
+}
+.lineNo {
+  text-anchor: end;
+  font-size: 13px;
+}
+.code {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  fill: #c9d0de;
+}
+.kw {
+  fill: #8c6eff;
+}
+.fn {
+  fill: #4f7dff;
+}
+.st {
+  fill: #22d3b6;
+}
+.cm {
+  fill: #5d6782;
+  font-style: italic;
+}
+.tx {
+  fill: #c9d0de;
+}
+.typeCover {
+  fill: #111829;
+  animation: type 9s steps(28, end) infinite both;
+}
+@keyframes type {
+  0% {
+    transform: translateX(0);
+  }
+  12%,
+  88% {
+    transform: translateX(352px);
+  }
+  94%,
+  100% {
+    transform: translateX(0);
+  }
+}
+.cursor {
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 @keyframes grow {
@@ -82,7 +205,20 @@
   }
   .pulse,
   .float,
-  .sweep {
+  .sweep,
+  .orbit,
+  .counter,
+  .beam,
+  .flow,
+  .cursor {
     animation: none;
+  }
+  .stage {
+    animation: none;
+    opacity: 1;
+  }
+  .typeCover,
+  .traveller {
+    display: none;
   }
 }

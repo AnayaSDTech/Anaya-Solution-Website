@@ -60,12 +60,14 @@ export default function ContactForm() {
   const summaryRef = useRef(null);
   const successRef = useRef(null);
 
-  // Prefill from ?product=slug&type=demo
+  // Prefill from ?product=slug&type=demo, or ?type=build (from "Build with us")
   useEffect(() => {
     const slug = params.get('product');
     const match = products.find((p) => p.slug === slug);
     if (match) {
       setValues((v) => ({ ...v, product: match.name, enquiryType: v.enquiryType || 'Product enquiry' }));
+    } else if (params.get('type') === 'build') {
+      setValues((v) => ({ ...v, enquiryType: v.enquiryType || 'Build a product with us' }));
     }
   }, [params]); // eslint-disable-line react-hooks/exhaustive-deps
 

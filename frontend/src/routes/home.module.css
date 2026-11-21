@@ -1,0 +1,39 @@
+/* "Have an idea?" teaser */
+.build {
+  display: grid;
+  gap: var(--space-7);
+  align-items: center;
+}
+.build > div:first-child > :last-child {
+  margin-top: var(--space-2);
+}
+.buildModels {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  counter-reset: model;
+}
+.buildModel {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-5) 0;
+  border-top: 1px solid var(--border);
+}
+.buildModel:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.buildModelTitle {
+  font-size: var(--fs-h4);
+  font-weight: 600;
+}
+.buildModelText {
+  margin-top: var(--space-1);
+  color: var(--text-muted);
+}
+
+@media (min-width: 1024px) {
+  .build {
+    grid-template-columns: 5fr 6fr;
+    gap: var(--space-9);
+  }
+}

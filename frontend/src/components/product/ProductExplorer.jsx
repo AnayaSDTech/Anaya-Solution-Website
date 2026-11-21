@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router';
 import { AnimatePresence, m } from 'motion/react';
-import ProductCard from './ProductCard';
+import ProductFeature from './ProductFeature';
 import Icon from '@/components/ui/Icon';
 import { TechAreaGrid } from '@/components/technology/TechArea';
 import { domains, technologies } from '@/lib/taxonomy';
@@ -43,12 +43,6 @@ export default function ProductExplorer({ products }) {
   const domainOptions = domains.filter((d) => products.some((p) => matches(p, d.slug, [])));
   const techOptions = technologies.filter((t) => products.some((p) => p.technologies.includes(t.slug)));
   const isFiltered = Boolean(domain || techs.length);
-
-  const groups = isFiltered
-    ? [{ slug: 'results', label: null, products: filtered }]
-    : domains
-        .map((d) => ({ ...d, products: products.filter((p) => p.domain === d.slug) }))
-        .filter((g) => g.products.length);
 
   return (
     <div>
@@ -114,30 +108,22 @@ export default function ProductExplorer({ products }) {
           </button>
         </div>
       ) : (
-        groups.map((group) => (
-          <section key={group.slug} className={styles.group} aria-labelledby={group.label ? `group-${group.slug}` : undefined}>
-            {group.label && (
-              <h2 id={`group-${group.slug}`} className={styles.groupTitle} data-domain={group.slug}>
-                {group.label}
-              </h2>
-            )}
-            <ul role="list" className={styles.grid}>
-              <AnimatePresence initial={false}>
-                {group.products.map((p) => (
-                  <m.li
-                    key={p.slug}
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.98 }}
-                    transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    <ProductCard product={p} headingLevel={group.label ? 3 : 2} />
-                  </m.li>
-                ))}
-              </AnimatePresence>
-            </ul>
-          </section>
-        ))
+        <ul role="list" className={styles.list}>
+          <AnimatePresence initial={false}>
+            {filtered.map((p, i) => (
+              <m.li
+                key={p.slug}
+                className={styles.item}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <ProductFeature product={p} index={products.indexOf(p)} reverse={i % 2 === 1} />
+              </m.li>
+            ))}
+          </AnimatePresence>
+        </ul>
       )}
     </div>
   );

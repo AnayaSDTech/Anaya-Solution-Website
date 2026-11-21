@@ -35,7 +35,7 @@ export default function About() {
   ];
   return (
     <>
-      <PageHero {...about.hero} visual={<AbstractVisual variant="signal" />} />
+      <PageHero {...about.hero} visual={<AbstractVisual variant="mark" />} />
 
       <Section labelledBy="who-title">
         <Split

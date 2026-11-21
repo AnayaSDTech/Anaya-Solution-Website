@@ -29,7 +29,7 @@ const careersMailto = `mailto:${site.email}?subject=${encodeURIComponent('Career
 export default function Careers() {
   return (
     <>
-      <PageHero {...careers.hero} visual={<AbstractVisual variant="signal" />} />
+      <PageHero {...careers.hero} visual={<AbstractVisual variant="code" />} />
 
       <Section labelledBy="why-title">
         <SectionHeader eyebrow={careers.whyJoin.eyebrow} title={careers.whyJoin.title} id="why-title" />

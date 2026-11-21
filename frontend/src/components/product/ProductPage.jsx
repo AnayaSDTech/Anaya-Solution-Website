@@ -4,6 +4,7 @@ import Button from '@/components/ui/Button';
 import Icon from '@/components/ui/Icon';
 import { Eyebrow, IconTile, StatusBadge, Tag } from '@/components/ui/Primitives';
 import AbstractVisual from '@/components/media/AbstractVisual';
+import SignalField from '@/components/media/SignalField';
 import Reveal from '@/components/motion/Reveal';
 import Section from '@/components/ui/Section';
 import SectionHeader from '@/components/sections/SectionHeader';
@@ -26,6 +27,9 @@ function ProductHero({ product }) {
   return (
     <section className={styles.hero} data-tone="ink" aria-labelledby="page-title">
       <div className={styles.heroBg} aria-hidden="true" />
+      <div className={styles.heroField}>
+        <SignalField density={0.7} />
+      </div>
       <div className={cx('container', styles.heroInner)}>
         <div className={styles.heroContent}>
           <Breadcrumbs

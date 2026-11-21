@@ -99,3 +99,32 @@
 .product:hover .arrow {
   transform: translateX(3px);
 }
+
+/* Phones: open sections with a coloured rule instead of boxes */
+@media (max-width: 767px) {
+  .grid {
+    gap: var(--space-7);
+  }
+  .panel {
+    padding: 0 0 0 var(--space-5);
+    border: 0;
+    border-left: 2px solid var(--domain-color);
+    border-radius: 0;
+    background: none;
+    overflow: visible;
+  }
+  .panel::before {
+    display: none;
+  }
+  .icon {
+    width: 44px;
+    height: 44px;
+  }
+  .title {
+    margin-top: var(--space-4);
+    font-size: var(--fs-h3);
+  }
+  .products {
+    padding-top: var(--space-4);
+  }
+}

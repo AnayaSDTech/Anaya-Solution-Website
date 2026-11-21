@@ -28,6 +28,13 @@
     radial-gradient(ellipse 50% 60% at 80% 10%, color-mix(in srgb, var(--domain-color) 16%, transparent), transparent 70%),
     radial-gradient(ellipse 60% 60% at 90% 40%, rgb(79 125 255 / 0.16), transparent 70%);
 }
+.heroField {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.35;
+  mask-image: radial-gradient(ellipse 70% 90% at 80% 40%, #000 30%, transparent 80%);
+}
 .heroInner {
   display: grid;
   gap: var(--space-7);
@@ -327,6 +334,47 @@
   padding: var(--space-3) var(--space-4);
   font-size: 0.875rem;
   color: var(--text-muted);
+}
+
+/* Phones: flowing rows instead of stacked boxes */
+@media (max-width: 767px) {
+  .overview,
+  .useCases,
+  .techList {
+    gap: 0;
+  }
+  .overviewItem,
+  .techItem {
+    padding: var(--space-5) 0;
+    border: 0;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    background: none;
+  }
+  .overviewItem:last-child,
+  .techItem:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+  .overviewHead {
+    margin-bottom: var(--space-3);
+  }
+  .useCase {
+    padding: var(--space-2) 0 var(--space-2) var(--space-5);
+    margin-bottom: var(--space-6);
+    border: 0;
+    border-left: 2px solid var(--domain-color);
+    border-radius: 0;
+    background: none;
+  }
+  .useCase:last-child {
+    margin-bottom: 0;
+  }
+  .highlights {
+    gap: var(--space-5);
+  }
+  .highlights dd {
+    font-size: var(--fs-h4);
+  }
 }
 
 /* Related */

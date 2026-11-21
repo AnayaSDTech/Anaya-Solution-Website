@@ -28,6 +28,13 @@
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 70% 80% at 70% 20%, #000 20%, transparent 80%);
 }
+.field {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.4;
+  mask-image: radial-gradient(ellipse 70% 90% at 85% 30%, #000 30%, transparent 80%);
+}
 .inner {
   display: grid;
   gap: var(--space-7);

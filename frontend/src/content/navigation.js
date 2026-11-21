@@ -2,6 +2,7 @@ import { site } from './site.js';
 
 export const mainNav = [
   { label: 'Products', to: '/products', megaMenu: true },
+  { label: 'Build with us', to: '/build-with-us' },
   { label: 'Technology', to: '/technology' },
   site.features.servicesPage && { label: 'Services', to: '/services' },
   { label: 'About', to: '/about' },
@@ -12,6 +13,7 @@ export const headerCta = { label: 'Talk to us', to: '/contact' };
 
 export const footerCompany = [
   { label: 'About', to: '/about' },
+  { label: 'Build with us', to: '/build-with-us' },
   { label: 'Technology', to: '/technology' },
   site.features.servicesPage && { label: 'Services', to: '/services' },
   { label: 'Careers', to: '/careers' },

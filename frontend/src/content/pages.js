@@ -5,14 +5,14 @@ export const home = {
   hero: {
     eyebrow: 'AI products · Financial · Social', // [DRAFT]
     title: ['AI products for ', { highlight: 'financial and social intelligence' }, '.'], // [DRAFT]
-    lead: 'ANAYA Solutions builds AI-powered products for the financial and social domains, combining machine learning, cybersecurity and public key infrastructure.', // [DRAFT]
+    lead: 'ANAYA Solutions builds AI-powered products for the financial and social domains, and partners with organisations and founders to turn their ideas into AI products.', // [DRAFT]
     primaryCta: { label: 'Explore products', to: '/products' },
-    secondaryCta: { label: 'Talk to us', to: '/contact' },
+    secondaryCta: { label: 'Build with us', to: '/build-with-us' },
   },
   products: {
     eyebrow: 'Products',
     title: 'Our products',
-    lead: 'Products for financial services and for security and trust, built to the standards these domains demand.', // [DRAFT]
+    lead: 'AI-powered products for social insight, financial services, and security and trust.', // [DRAFT]
   },
   domains: {
     eyebrow: 'Where we work',
@@ -44,7 +44,7 @@ export const home = {
 export const productsPage = {
   hero: {
     eyebrow: 'Products',
-    title: ['Products for ', { highlight: 'finance, security and trust' }], // [DRAFT]
+    title: ['AI-powered products for ', { highlight: 'social, finance and security' }], // [DRAFT]
     lead: 'Explore our products by domain or by the technology behind them.',
   },
   cta: { title: 'Not sure which product fits?', lead: 'Talk to us and we will point you in the right direction.' },
@@ -149,5 +149,5 @@ export const contact = {
     lead: 'Have a challenge to solve or an idea to explore? Reach out to us. Our team is ready to partner with you and build the future.', // [VERIFIED]
   },
   privacyLine: 'We respect your privacy and will never share your information with third parties.', // [VERIFIED]
-  enquiryTypes: ['Product enquiry', 'Partnership', 'Careers', 'Other'],
+  enquiryTypes: ['Product enquiry', 'Build a product with us', 'Partnership', 'Careers', 'Other'],
 };

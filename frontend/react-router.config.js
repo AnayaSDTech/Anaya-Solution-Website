@@ -14,6 +14,7 @@ export default {
     const paths = [
       '/',
       '/products',
+      '/build-with-us',
       '/technology',
       '/about',
       '/careers',

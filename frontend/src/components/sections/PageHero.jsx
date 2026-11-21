@@ -1,5 +1,6 @@
 import { RichText } from '@/components/ui/Primitives';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import SignalField from '@/components/media/SignalField';
 import { cx } from '@/lib/utils';
 import styles from './PageHero.module.css';
 
@@ -12,6 +13,9 @@ export default function PageHero({ eyebrow, title, lead, visual, breadcrumbs, si
   return (
     <section className={cx(styles.hero, styles[size], visual && styles.withVisual)} data-tone="ink" aria-labelledby="page-title">
       <div className={styles.bg} aria-hidden="true" />
+      <div className={styles.field}>
+        <SignalField density={0.7} />
+      </div>
       <div className={cx('container', styles.inner)}>
         <div className={styles.content}>
           {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}

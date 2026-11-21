@@ -14,7 +14,7 @@ const product = {
   published: true,
   temporary: false,
   featured: true,
-  order: 1,
+  order: 2,
   icon: 'Landmark',
   visual: 'finance',
 

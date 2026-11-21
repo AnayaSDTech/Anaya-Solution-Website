@@ -29,7 +29,7 @@ export default function Technology() {
   const active = useActiveSection(technologies.map((t) => t.slug));
   return (
     <>
-      <PageHero {...technologyPage.hero} visual={<AbstractVisual variant="signal" />} />
+      <PageHero {...technologyPage.hero} visual={<AbstractVisual variant="orbit" />} />
 
       <Section>
         <div className={styles.layout}>

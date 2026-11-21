@@ -40,6 +40,58 @@
   line-height: 1.6;
 }
 
+/* Phones: flowing rows (icon left, text right) instead of stacked boxes */
+@media (max-width: 767px) {
+  .featureGrid {
+    gap: 0;
+  }
+  .featureCard {
+    gap: var(--space-2);
+    padding: var(--space-5) 0;
+    border: 0;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+  .featureCard:last-child {
+    border-bottom: 1px solid var(--border);
+  }
+  .featureCard:hover {
+    box-shadow: none;
+  }
+  .hasIcon {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    column-gap: var(--space-4);
+    row-gap: var(--space-1);
+    align-content: start;
+  }
+  .hasIcon > :first-child {
+    grid-row: span 2;
+  }
+  .hasIcon > :not(:first-child) {
+    grid-column: 2;
+  }
+  .featureTitle {
+    margin-top: 0;
+  }
+  .hasIcon .featureTitle {
+    align-self: center;
+  }
+  .facts {
+    gap: 0;
+  }
+  .fact {
+    padding: var(--space-4) 0;
+    border: 0;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+}
+
 /* Feature list */
 .featureList {
   display: grid;

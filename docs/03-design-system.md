@@ -344,3 +344,11 @@ At scaffold time, copy these into `public/images/brand/` (and `favicon.svg` into
 ### 12.4 Before public launch
 
 The logo is original work created for this project. Before it is registered or used widely (print, signage, product UI), ANAYA should run a trademark clearance search for the mark and name.
+
+## 13. Motion and mobile updates (2026-11-18)
+
+- **NeuralNet** (`src/components/media/NeuralNet.jsx`): canvas animation of a layered neural network with signals firing from input to output. Used in the home hero (beside the text on desktop, under the buttons on phones). Pauses off-screen, draws a still frame for reduced motion.
+- **SignalField** now also runs behind page heroes, product heroes and the CTA band.
+- Hero highlight text uses a slow animated gradient; section eyebrows have a flowing signal line. All animations stop for `prefers-reduced-motion`.
+- **Optional hero video:** add `video: { src: '/media/hero.mp4', poster: '/media/hero.jpg' }` to `home.hero` in `src/content/pages.js` and put the files in `public/media/`. Muted, looped, hidden for reduced motion. Keep it under ~3 MB (H.264 MP4, 1280–1920px wide, 10–20 s loop).
+- **Phones (< 768px):** card grids (capabilities, technology areas, overview, use cases, tech foundations, facts) render as open rows with dividers; domain panels use a coloured left rule. Product cards remain cards.

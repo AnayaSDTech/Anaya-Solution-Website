@@ -70,7 +70,11 @@ export function useFocusTrap(ref, active) {
   }, [ref, active]);
 }
 
-/** Id of the section currently in view (scroll-spy). */
+/**
+ * Id of the section currently being read (scroll-spy): the last section whose
+ * top has passed a line 30% down the viewport. Position-based, so it never
+ * sticks on an earlier section during fast scrolls or jumps.
+ */
 export function useActiveSection(ids) {
   const [active, setActive] = useState(ids[0]);
   const key = ids.join('|');
@@ -80,17 +84,33 @@ export function useActiveSection(ids) {
       .map((id) => document.getElementById(id))
       .filter(Boolean);
     if (!elements.length) return undefined;
-    const visible = new Map();
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => visible.set(entry.target.id, entry.isIntersecting));
-        const first = elements.find((el) => visible.get(el.id));
-        if (first) setActive(first.id);
-      },
-      { rootMargin: '-30% 0px -60% 0px' },
-    );
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const line = window.innerHeight * 0.3;
+      let current = elements[0];
+      for (const el of elements) {
+        if (el.getBoundingClientRect().top <= line) current = el;
+        else break;
+      }
+      // At the very bottom, the last section is the one being read
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+        const last = elements[elements.length - 1];
+        if (last.getBoundingClientRect().top < window.innerHeight) current = last;
+      }
+      setActive(current.id);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, [key]);
   return active;
 }

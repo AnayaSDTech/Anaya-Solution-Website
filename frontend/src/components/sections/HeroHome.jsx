@@ -3,12 +3,32 @@ import Button from '@/components/ui/Button';
 import Icon from '@/components/ui/Icon';
 import { RichText } from '@/components/ui/Primitives';
 import SignalField from '@/components/media/SignalField';
+import NeuralNet from '@/components/media/NeuralNet';
 import { technologies } from '@/lib/taxonomy';
+import { withBase } from '@/lib/base';
 import styles from './HeroHome.module.css';
 
-export default function HeroHome({ eyebrow, title, lead, primaryCta, secondaryCta }) {
+/**
+ * Home hero. `video` ({ src, poster?, type? }) adds an optional looping,
+ * muted background video; it is hidden for visitors who prefer reduced motion.
+ */
+export default function HeroHome({ eyebrow, title, lead, primaryCta, secondaryCta, video }) {
   return (
     <section className={styles.hero} data-tone="ink" aria-labelledby="home-hero-title">
+      {video?.src && (
+        <video
+          className={styles.video}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={video.poster ? withBase(video.poster) : undefined}
+          aria-hidden="true"
+        >
+          <source src={withBase(video.src)} type={video.type ?? 'video/mp4'} />
+        </video>
+      )}
       <div className={styles.field}>
         <SignalField />
       </div>
@@ -33,6 +53,10 @@ export default function HeroHome({ eyebrow, title, lead, primaryCta, secondaryCt
               {secondaryCta.label}
             </Button>
           </div>
+        </div>
+
+        <div className={`${styles.net} enter`} style={{ '--enter-delay': '300ms' }}>
+          <NeuralNet />
         </div>
 
         <ul role="list" className={`${styles.chips} enter`} style={{ '--enter-delay': '360ms' }} aria-label="Technology areas">

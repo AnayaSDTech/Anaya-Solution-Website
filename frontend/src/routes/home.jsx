@@ -7,7 +7,12 @@ import ClientLogoStrip from '@/components/sections/ClientLogoStrip';
 import { TechAreaGrid } from '@/components/technology/TechArea';
 import { FeatureList, Split } from '@/components/sections/Blocks';
 import CtaBand from '@/components/sections/CtaBand';
+import Button from '@/components/ui/Button';
+import { IconTile } from '@/components/ui/Primitives';
+import Reveal from '@/components/motion/Reveal';
 import { home } from '@/content/pages';
+import { buildPage, buildTeaser } from '@/content/build';
+import styles from './home.module.css';
 import { clients, clientsSection } from '@/content/clients';
 import { getFeaturedProducts } from '@/lib/products';
 import { buildMeta, organizationJsonLd } from '@/lib/seo';
@@ -42,6 +47,28 @@ export default function Home() {
       </Section>
 
       <ClientLogoStrip {...clientsSection} clients={clients} />
+
+      <Section labelledBy="home-build-title" alt background="grid">
+        <div className={styles.build}>
+          <div>
+            <SectionHeader eyebrow={buildTeaser.eyebrow} title={buildTeaser.title} lead={buildTeaser.lead} id="home-build-title" />
+            <Button to={buildTeaser.cta.to} size="lg" iconRight="ArrowRight" fullWidthOnMobile>
+              {buildTeaser.cta.label}
+            </Button>
+          </div>
+          <ol role="list" className={styles.buildModels}>
+            {buildPage.models.items.map((m, i) => (
+              <Reveal as="li" key={m.title} delay={i * 80} className={styles.buildModel}>
+                <IconTile name={m.icon} />
+                <div>
+                  <h3 className={styles.buildModelTitle}>{m.title}</h3>
+                  <p className={styles.buildModelText}>{m.description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </Section>
 
       <Section labelledBy="home-domains-title" background="glow">
         <SectionHeader {...home.domains} id="home-domains-title" />

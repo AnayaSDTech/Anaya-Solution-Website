@@ -13,7 +13,7 @@ const product = {
   published: true,
   temporary: false,
   featured: true,
-  order: 2,
+  order: 3,
   icon: 'KeyRound',
   visual: 'key',
 

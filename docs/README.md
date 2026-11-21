@@ -16,7 +16,7 @@ Implementation-ready documentation for the new ANAYA Solutions website (anaya.uk
 | 06 | [Technical architecture](06-technical-architecture.md) | Stack, architecture decisions, folder structure, routing and pre-rendering, content layer, SEO, contact form, performance, hosting, testing |
 | 07 | [Component library](07-component-library.md) | Component principles, conventions and full inventory with props and accessibility rules |
 | 08 | [Content inventory & gaps](08-content-inventory-and-gaps.md) | Verified reusable content, content to drop, temporary content, and the register of content ANAYA must supply |
-| 09 | [Products](09-products.md) | The two real products (ANAYA Open Banking, ANAYA CDM), with the evidence behind each website claim |
+| 09 | [Products](09-products.md) | The three products (EchoLoop, ANAYA Open Banking, ANAYA CDM) and the Build with us offer, with the evidence behind each website claim |
 | — | [brand/](brand/) | New ANAYA logo (SVG files) and a browser preview page ([brand/preview.html](brand/preview.html)) |
 
 ## Content labels
@@ -30,7 +30,7 @@ Implementation-ready documentation for the new ANAYA Solutions website (anaya.uk
 
 ## Key finding from the site analysis
 
-The current site (six pages) presents ANAYA as an **IT consultancy** and contains **no product names, descriptions or features**. The product system is fully specified (data model, template, components), and the site now presents two real products, ANAYA Open Banking and ANAYA CDM ([09](09-products.md)). Remaining launch blockers are listed as P0 in [08 §3](08-content-inventory-and-gaps.md#3-content-gap-register).
+The current site (six pages) presents ANAYA as an **IT consultancy** and contains **no product names, descriptions or features**. The product system is fully specified (data model, template, components), and the site now presents three real products, EchoLoop, ANAYA Open Banking and ANAYA CDM, plus a "Build with us" development-partner offer ([09](09-products.md)). Remaining launch blockers are listed as P0 in [08 §3](08-content-inventory-and-gaps.md#3-content-gap-register).
 
 ## Decisions made (2026-11-16)
 

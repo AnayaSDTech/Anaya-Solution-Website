@@ -35,7 +35,10 @@
   pointer-events: none;
 }
 
-/* Soft accent glow */
+/* Soft accent glow (clipped so it never widens the page on phones) */
+.glow {
+  overflow: clip;
+}
 .glow::after {
   content: '';
   position: absolute;

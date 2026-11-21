@@ -5,6 +5,7 @@ export default [
     index('routes/home.jsx'),
     route('products', 'routes/products.jsx'),
     route('products/:productSlug', 'routes/product-detail.jsx'),
+    route('build-with-us', 'routes/build-with-us.jsx'),
     route('technology', 'routes/technology.jsx'),
     route('services', 'routes/services.jsx'),
     route('about', 'routes/about.jsx'),

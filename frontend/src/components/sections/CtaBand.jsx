@@ -1,5 +1,6 @@
 import Button from '@/components/ui/Button';
 import Reveal from '@/components/motion/Reveal';
+import SignalField from '@/components/media/SignalField';
 import styles from './CtaBand.module.css';
 
 /**
@@ -18,6 +19,9 @@ export default function CtaBand({
       <div className="container">
         <Reveal className={styles.panel}>
           <div className={styles.glow} aria-hidden="true" />
+          <div className={styles.field}>
+            <SignalField density={0.8} />
+          </div>
           <div className={styles.content}>
             <h2 id="cta-title" className={styles.title}>
               {title}

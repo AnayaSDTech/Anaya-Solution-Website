@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router';
 import Icon from '@/components/ui/Icon';
 import { IconTile } from '@/components/ui/Primitives';
@@ -59,35 +60,59 @@ export function TechAreaStrip() {
   );
 }
 
-/** Sticky side index (desktop) / jump select (mobile). */
+/**
+ * Scroll to a section on this page without a router navigation (a plain hash
+ * change is treated as a navigation and can cancel the scroll).
+ */
+function jumpTo(e, slug) {
+  const el = document.getElementById(slug);
+  if (!el) return;
+  e.preventDefault();
+  const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  el.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+  window.history.replaceState(window.history.state, '', `#${slug}`);
+}
+
+/** Sticky side index (desktop) / swipeable tab bar (mobile and tablet). */
 export function TechAreaIndex({ activeId }) {
+  const tabsRef = useRef(null);
+
+  // Keep the active tab visible inside the horizontal bar (without moving the page)
+  useEffect(() => {
+    const bar = tabsRef.current;
+    const tab = bar?.querySelector(`[data-slug="${activeId}"]`);
+    if (!bar || !tab || bar.scrollWidth <= bar.clientWidth) return;
+    const left = tab.offsetLeft - (bar.clientWidth - tab.offsetWidth) / 2;
+    const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    bar.scrollTo({ left: Math.max(0, left), behavior: smooth ? 'smooth' : 'auto' });
+  }, [activeId]);
+
   return (
     <nav aria-label="Technology areas" className={styles.indexNav}>
-      <label className={styles.jump}>
-        <span className="visually-hidden">Jump to a technology area</span>
-        <select
-          value={activeId}
-          onChange={(e) => {
-            const el = document.getElementById(e.target.value);
-            if (el) {
-              el.scrollIntoView();
-              history.replaceState(null, '', `#${e.target.value}`);
-            }
-          }}
-        >
+      <div className={styles.tabsWrap}>
+        <ul role="list" className={styles.tabs} ref={tabsRef}>
           {technologies.map((t) => (
-            <option key={t.slug} value={t.slug}>
-              {t.label}
-            </option>
+            <li key={t.slug}>
+              <a
+                href={`#${t.slug}`}
+                data-slug={t.slug}
+                onClick={(e) => jumpTo(e, t.slug)}
+                className={cx(styles.tab, activeId === t.slug && styles.tabActive)}
+                aria-current={activeId === t.slug ? 'true' : undefined}
+              >
+                <Icon name={t.icon} size={16} />
+                {t.short}
+              </a>
+            </li>
           ))}
-        </select>
-        <Icon name="ChevronDown" size={18} />
-      </label>
+        </ul>
+      </div>
       <ol role="list" className={styles.indexList}>
         {technologies.map((t, i) => (
           <li key={t.slug}>
             <a
               href={`#${t.slug}`}
+              onClick={(e) => jumpTo(e, t.slug)}
               className={cx(styles.indexLink, activeId === t.slug && styles.indexActive)}
               aria-current={activeId === t.slug ? 'true' : undefined}
             >

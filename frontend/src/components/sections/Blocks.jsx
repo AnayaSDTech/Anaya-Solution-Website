@@ -12,7 +12,7 @@ export function FeatureGrid({ items, columns = 3, headingLevel = 3 }) {
   return (
     <ul role="list" className={cx(styles.featureGrid, columns === 4 && styles.cols4, columns === 2 && styles.cols2)}>
       {items.map((item, i) => (
-        <Reveal as="li" key={item.title} delay={(i % 3) * 60} className={styles.featureCard}>
+        <Reveal as="li" key={item.title} delay={(i % 3) * 60} className={cx(styles.featureCard, item.icon && styles.hasIcon)}>
           {item.icon && <IconTile name={item.icon} />}
           <Heading className={styles.featureTitle}>{item.title}</Heading>
           {item.description && <p className={styles.featureText}>{item.description}</p>}
